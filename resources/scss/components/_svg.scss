@@ -1,0 +1,60 @@
+.css-center-svg {
+  top: 50%;
+  z-index: 1;
+}
+
+.css-map-svg {
+  transform: translateY(-50%);
+  right: -10px;
+  max-width: 1137px;
+  max-height: 1137px;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.css-shape-svg svg {
+  width: 766.897px;
+  height: 597px;
+  flex-shrink: 0;
+}
+
+.css-shape-svg--right {
+  right: 0;
+  transform: translateY(-42%);
+}
+
+.css-shape-svg--left {
+  left: -4%;
+  transform: translateY(-42%);
+}
+
+.css-arrow-svg--right {
+  right: 180px;
+}
+
+.css-arrow-svg--left {
+  left: 180px;
+}
+
+.css-abstract--right,
+.css-abstract--left {
+  top: 0;
+}
+
+.css-abstract--right {
+  right: 40px;
+}
+
+.css-abstract--left {
+  left: 180px;
+}
+
+.css-text-in-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-75%, 25%);
+  z-index: 2;
+}

@@ -1,0 +1,33 @@
+
+
+.css-header {
+  background-image: url(../images/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.css-header-row {
+  min-height: 640px;
+}
+
+.css-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.93;
+  background:
+    linear-gradient(270deg, #0290847a -51.53%, #027274 -8.82%, #035865 33.89%, #044259 76.6%, #04304F 119.31%, #052247 162.02%, #051741 204.73%, #050F3C 247.44%, #050A39 290.15%, #050738 332.86%, #050738 375.57%);
+}
+
+.css-bg-gradient {
+  background:
+    linear-gradient(270deg, #0290847a -51.53%, #027274 -8.82%, #035865 33.89%, #044259 76.6%, #04304F 119.31%, #052247 162.02%, #051741 204.73%, #050F3C 247.44%, #050A39 290.15%, #050738 332.86%, #050738 375.57%);
+}
+
+.css-box-over-header {
+  transform: translateY(-150px);
+}

@@ -1,0 +1,12 @@
+$css-navbar-gap: 2rem;
+
+.css-navbar--gap {
+  // margin-bottom: $css-navbar-gap;
+  gap: $css-navbar-gap;
+  // row-gap: $css-navbar-gap;
+}
+
+.css-navbar-active {
+  color: $secondary !important;
+  text-decoration: underline;
+}

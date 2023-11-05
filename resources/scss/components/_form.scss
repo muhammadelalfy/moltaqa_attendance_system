@@ -1,0 +1,55 @@
+@import "bootstrap/scss/variables";
+
+.form-check {
+    padding-left: 0;
+    padding-right: 1.5em;
+  .form-check-input {
+    float: right;
+    margin-right: -1.5em;
+    &::checked {
+      color: $form-check-input-checked-color !important;
+      background-color: $form-check-input-checked-bg-color !important;
+    }
+  }
+}
+
+
+.form-select,
+.form-select-lg {
+  padding-left: 1.5em;
+  padding-right: .6em;
+  background-position: left 0.75rem center;
+}
+
+.form-select,
+input::placeholder,
+textarea::placeholder {
+  color: var(--bs-dark-text-emphasis) !important;
+}
+
+
+.css-step {
+  display: none;
+}
+
+.css-step--active {
+  display: flex !important;
+}
+
+
+.css-input-password {
+  position: relative;
+  input {
+    padding-left: 3.5em;
+  }
+  .css-input-password--show {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}

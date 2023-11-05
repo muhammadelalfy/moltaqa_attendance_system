@@ -1,0 +1,149 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// custom colors
+$primary: #407781;
+$secondary: #03A3C1;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #043552;
+
+$primary-text-emphasis: #07706D;
+$secondary-text-emphasis: rgba($secondary, 0.85);
+$success-text-emphasis: rgba($success, 0.85);
+$info-text-emphasis: rgba($info, 0.85);
+$warning-text-emphasis: rgba($warning, 0.85);
+$danger-text-emphasis: rgba($danger, 0.85);
+$light-text-emphasis: rgba($light, 0.85);
+$dark-text-emphasis: rgba($dark, 0.85);
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+
+$dark-text-emphasis: rgba($dark, 0.85);
+
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+$utilities-text: map-merge(
+  $utilities-colors,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body": to-rgb($body-color)
+  )
+);
+$utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text");
+
+$utilities-text-emphasis-colors: (
+  "primary-emphasis": var(--#{$prefix}primary-text-emphasis),
+  "secondary-emphasis": var(--#{$prefix}secondary-text-emphasis),
+  "success-emphasis": var(--#{$prefix}success-text-emphasis),
+  "info-emphasis": var(--#{$prefix}info-text-emphasis),
+  "warning-emphasis": var(--#{$prefix}warning-text-emphasis),
+  "danger-emphasis": var(--#{$prefix}danger-text-emphasis),
+  "light-emphasis": var(--#{$prefix}light-text-emphasis),
+  "dark-emphasis": var(--#{$prefix}dark-text-emphasis)
+);
+
+
+$theme-colors-text: (
+  "primary": $primary-text-emphasis,
+  "secondary": $secondary-text-emphasis,
+  "success": $success-text-emphasis,
+  "info": $info-text-emphasis,
+  "warning": $warning-text-emphasis,
+  "danger": $danger-text-emphasis,
+  "light": $light-text-emphasis,
+  "dark": $dark-text-emphasis,
+);
+
+$utilities: (
+  "color": (
+  property: color,
+  class: text,
+  local-vars: (
+    "text-opacity": 1
+  ),
+  values: map-merge(
+    $utilities-text-colors,
+    (
+      "muted": var(--#{$prefix}secondary-color), // deprecated
+      "black-50": rgba($black, .5), // deprecated
+      "white-50": rgba($white, .5), // deprecated
+      "body-secondary": var(--#{$prefix}secondary-color),
+      "body-tertiary": var(--#{$prefix}tertiary-color),
+      "body-emphasis": var(--#{$prefix}emphasis-color),
+      "reset": inherit,
+    )
+  )
+),
+
+);
+
+
+
+$focus-ring-box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+$btn-focus-box-shadow: $focus-ring-box-shadow;
+
+$input-color:   $primary;
+$input-bg:     #FAFAFA;
+$input-btn-focus-box-shadow: $focus-ring-box-shadow;
+$input-focus-color:     $input-color;
+$input-focus-box-shadow:  $focus-ring-box-shadow;
+$input-focus-border-color:  $input-focus-color;
+
+// select
+$form-select-bg: $input-bg;
+$form-select-focus-border-color: $input-focus-border-color;
+$form-select-focus-box-shadow: $input-focus-box-shadow;
+
+
+$component-active-color: $primary;
+$component-active-bg:    $primary;
+$form-check-input-checked-color:          $component-active-color;
+$form-check-input-checked-bg-color:       $component-active-bg;
+$form-check-input-checked-border-color:   $form-check-input-checked-bg-color;
+$form-check-input-focus-box-shadow:       $focus-ring-box-shadow;
+
+$accordion-button-focus-box-shadow: $focus-ring-box-shadow;
+
+
+.bg-gray-100 {
+  background-color: #f8f9fa !important;
+}
+
+.bg-gray-200 {
+  background-color: #e9ecef !important;
+}
+
+.text-primary-700 {
+  color: #07706D !important;
+}
+
+.text-abaad {
+  color: #2c3991 !important;
+}
+
+.text-red {
+  color: #dc3545 !important;
+}
+
+// custom text-colors with utility api
+

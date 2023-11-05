@@ -1,0 +1,23 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@import "./customize/_colors";
+@import "./customize/_typography";
+@import "./customize/_spacing";
+
+@import "bootstrap/scss/bootstrap";
+
+// components
+@import "./components/_modal";
+@import "./components/_video";
+@import "./components/_image";
+@import "./components/_svg";
+@import "./components/_form";
+@import "./components/_tag";
+@import "./components/_loading-screen";
+@import "./components/_accordion";
+
+// layouts
+@import "./layout/_navbar";
+@import "./layout/_header";
+@import "./layout/_footer";
+

@@ -1,0 +1,9 @@
+@import "fonts.css";
+
+body {
+  background: #F8F8F8;
+}
+
+.css-poll-section {
+  top: -10%;
+}

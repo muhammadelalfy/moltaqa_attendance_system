@@ -1,0 +1,69 @@
+.css-logo {
+  object-fit: contain;
+  object-position: center;
+}
+
+.css-overide-image-top,
+.css-overide-image-bottom {
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+}
+
+.css-overide-image-top {
+  bottom: 200px;
+  right: 50px;
+  width: 444px;
+  height: 286px;
+}
+
+.css-overide-image-bottom {
+  left: 0;
+  width: 523px;
+  height: 337px;
+}
+
+.css-parternar-img {
+  // make all parternar image max width
+  max-height: 150px;
+  width: 100%;
+  object-fit: contain;
+  padding: 12px 20px;
+}
+
+
+.css-parternar-abaad-logo {
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  height: auto;
+}
+
+.css-image-login {
+  object-fit: cover;
+  object-position: center;
+}
+
+// xlarge screen
+@media (min-width: 1280px) {
+}
+
+//  large screen
+@media (max-width: 1024px) {
+  .css-overide-image-top {
+    display: none;
+  }
+  .css-overide-image-bottom {
+    left: 0;
+    width: auto;
+  }
+}
+
+// remove position relative in meduium screen
+@media (max-width: 768px) {
+  .css-overide-image-top,
+  .css-overide-image-bottom {
+    position: relative !important;
+  }
+}

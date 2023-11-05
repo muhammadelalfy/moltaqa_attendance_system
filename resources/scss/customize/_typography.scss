@@ -1,0 +1,89 @@
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// custom typography
+
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+
+$h1-font-size: 2.25rem; // 36px
+$h2-font-size: 1.9rem; // 30px
+$h3-font-size: 1.5rem; // 24px
+$h4-font-size: 1.25rem; // 20px
+$h5-font-size: 1rem;  // 16px
+$h6-font-size: 0.875rem; // 14px
+$lead-font-size: 1.25rem; // 20px
+$small-font-size: 0.875rem; // 14px
+
+$letter-spacing: 0.024em; // 0.4px
+
+$line-height-base: 1.5; // Assumes the browser default, typically `1.5`
+$line-height-sm: 1.25; // 20px
+$line-height-lg: 2; // 32px
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+
+);
+
+
+
+// map merge and modify utilities to add new values to line-height
+$utilities: map-merge(
+  $utilities,
+  (
+    "line-height": map-merge(
+      map-get($utilities, "line-height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "line-height"), "values"),
+          (
+            xl: 2.5,
+            pg:  50px,
+          )
+        )
+      )
+    ),
+    "font-size": (
+      property: font-size,
+      class: font-size,
+      values: (
+        1: $h1-font-size,
+        2: $h2-font-size,
+        3: $h3-font-size,
+        4: $h4-font-size,
+        5: $h5-font-size,
+        6: $h6-font-size,
+        lead: $lead-font-size,
+        small: $small-font-size,
+      )
+    ),
+  )
+);
+
+
+
+// custom classes
+
+// letter spacing
+.css-letter-spacing {
+  letter-spacing: $letter-spacing;
+}
+
+.h0 {
+  font-size: 3.5rem;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+}
+
+
+@import "bootstrap/scss/utilities/api";

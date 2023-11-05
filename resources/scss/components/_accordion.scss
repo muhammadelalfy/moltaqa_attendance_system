@@ -1,0 +1,18 @@
+// create custom accordion for odd and even
+.accordion-item:nth-child(odd) {
+  .accordion-button {
+    background-color: #F2F2F2;
+  }
+}
+
+.accordion-item:nth-child(even) {
+  .accordion-button {
+    background-color: #FAFAFA;
+  }
+}
+
+
+.accordion-button::after {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}

@@ -1,0 +1,7 @@
+.css-subscribe-input {
+  border: 1px solid rgba($color: #fff, $alpha: .3);
+
+  &::placeholder {
+    color: rgba($color: #fff, $alpha: .3) !important;
+  }
+}

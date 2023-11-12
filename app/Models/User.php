@@ -47,4 +47,9 @@ class User extends Authenticatable
     public function certification(){
         $this->hasOne(Certificate::class);
     }
+
+    public function meeting()
+    {
+        $this->hasMany(Meeting::class);
+    }
 }

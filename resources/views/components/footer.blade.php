@@ -31,25 +31,25 @@
             <div class="col-md-6 col-xl-3">
                 <h4 class="h4 text-white mb-4">نظرة عامة</h4>
                 <ul class="list-unstyled pe-0">
-                    <li class="mb-3"><a class="text-white-50 fs-6" href="privacy-policy.html">السياسات والاستراتيجيات والتزامات تقديم الخدمة</a></li>
+                    <li class="mb-3"><a class="text-white-50 fs-6" href="{{route('pages','privacy-policy')}}">السياسات والاستراتيجيات والتزامات تقديم الخدمة</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-xl-3">
                 <h4 class="h4 text-white mb-4">الدعم والمساعدة</h4>
                 <ul class="list-unstyled pe-0">
-                    <li class="mb-3"><a class="text-white-50 fs-6" href="faqs.html">الأسئلة الشائعة</a></li>
+                    <li class="mb-3"><a class="text-white-50 fs-6" href="{{route('pages','faqs')}}">الأسئلة الشائعة</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-xl-3">
                 <h4 class="h4 text-white mb-4">روابط مهمة</h4>
                 <ul class="list-unstyled pe-0">
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="about.html">نبذة عن الملتقى</a></li>
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="#scrolltoact">الجلسات</a></li>
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="signup-with-us.html">سجل معنا</a></li>
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="program-attend.html">حضور الملتقى</a></li>
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="rate-us.html">قيمنا</a></li>
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="certificates.html">استخراج الشهادة</a></li>
-                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="contact.html">اتصل بنا</a></li>
+                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="{{route('pages','about')}}">نبذة عن الملتقى</a></li>
+{{--                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="#scrolltoact">الجلسات</a></li>--}}
+                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="{{route('pages','register')}}">سجل معنا</a></li>
+                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="{{route('pages','program-attend')}}">حضور الملتقى</a></li>
+                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="{{route('pages','rate-us')}}">قيمنا</a></li>
+                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="{{route('pages','certificates')}}">استخراج الشهادة</a></li>
+                    <li class="mb-3"><a class="fs-6 text-white-50 fs-6" href="{{route('pages','contact')}}">اتصل بنا</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-xl-3">

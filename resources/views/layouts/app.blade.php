@@ -11,7 +11,13 @@
 </head>
 <body>
 @if(Request::is('register'))
-    @include('components.headerForRegister')
+    @include('components.header_without_image')
+@elseif(Request::is('privacy-policy'))
+    @include('components.header_without_image')
+@elseif(Request::is('faqs'))
+    @include('components.header_without_image')
+@elseif(Request::is('attendance'))
+    @include('components.header_without_image')
 @else
     @include('components.header')
 

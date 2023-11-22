@@ -1,17 +1,40 @@
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+<!doctype html>
+<html dir="rtl">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @yield('title')
     </title>
-
-    <script type="module" crossorigin src="{{asset('assets/main-9493df59.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('assets/main-35619697.css')}}">
+    <script type="module" crossorigin src="{{asset('./assets/main-9493df59.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('./assets/main-35619697.css')}}">
 </head>
 <body>
-@yield('content')
+
+<!-- header-->
+<!-- main content-->
+<main class="css-dashboard">
+    <!-- Sidebar-->
+    <aside class="css-sidebar">
+        <div class="css-sidebar-header d-flex"><img class="css-logo css-sidebar-logo mb-2"
+                                                    src="{{asset('images/main-logo.png')}}" alt="logo"/><img
+                class="css-logo css-sidebar-logo" src="{{asset('images/logo.png')}}" alt="logo"/></div>
+        <div class="css-sidebar-body mt-5">
+            <ul class="nav flex-column">
+                <!-- classe for active page: css-sidebar-active-->
+                <li class="nav-item"><a class="nav-link" href="{{route('pages','admin-overview')}}"><i
+                            class="bi bi-house-door-fill fs-4 mx-2"></i> الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('pages','admin-evaluation-management')}}"><i
+                            class="bi bi-bar-chart-line-fill fs-4 mx-2"></i>ادارة التقييمات</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('pages','admin_questions')}}"><i
+                            class="bi bi-file-text-fill fs-4 mx-2"></i>ادارة الاستبيان</a></li>
+            </ul>
+        </div>
+    </aside>
+    @yield('content')
+</main>
+<!-- footer-->
+<!-- script-->
 <button class="scroll-top-button btn text-white" id="scrollTopButton" type="button" style="opacity: 0">
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 40 40" fill="none">
         <rect width="40" height="40" rx="20" transform="matrix(1 0 0 -1 0 40)" fill="url(#paint0_linear_65_15913)"/>
@@ -38,8 +61,5 @@
         </defs>
     </svg>
 </button>
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-{!! Toastr::message() !!}
 </body>
 </html>

@@ -24,6 +24,7 @@ class ZoomIntegrationController extends Controller
 
         return $data;
     }
+
     public function updateZoomLink($id, $data)
     {
         $data = $this->updatezoom($id, $data);
@@ -50,6 +51,7 @@ class ZoomIntegrationController extends Controller
         //     'data'    => json_decode($response->getBody(), true),
         // ];
     }
+
     public function deleteZoomLink($request)
     {
 
@@ -68,8 +70,8 @@ class ZoomIntegrationController extends Controller
 
     public function linkZoomAccount(Request $req)
     {
-           $response = $this->linkZoom(Auth::Id(), $req->email);
-           return back()->with('message', $response['message']);
+        $response = $this->linkZoom(Auth::Id(), $req->email);
+        return back()->with('message', $response['message']);
 
 
     }
@@ -77,40 +79,38 @@ class ZoomIntegrationController extends Controller
     public function createMeeting($request)
     {
 
-    $meeting = Meeting::find($request);
+        $meeting = Meeting::find($request);
+        $meeting_start = $meeting->start_url;
+        if (is_null($meeting)) {
 
-    if(is_null($meeting)){
+            $data = $this->create($request);
+            $meeting_start = $data['data']['start_url'];
+            $meeting_join = $data['data']['join_url'];
+            $meeting_password = $data['data']['password'];
+            $meeting_duration = $data['data']['duration'];
+//dd($data);
+            if ($data) {
+                $meeting = new Meeting();
+                $meeting->start_url = $meeting_start;
+                $meeting->join_url = $meeting_join;
+                $meeting->password = $meeting_password;
+                $meeting->duration = $meeting_duration;
+                $meeting->save();
 
-     $data = $this->create($request);
-dd($data);
-     $meeting_start = $data['data']['start_url'];
-     $meeting_join = $data['data']['join_url'];
-     $meeting_password = $data['data']['password'];
-     $meeting_duration = $data['data']['duration'];
+                return $meeting_start;
+//                return view('pages.admin.live', compact('meeting_start'));
+            } else {
+                return redirect()->back()->with('error', 'Sorry No Meeting create');
+            }
 
-
-    if ($data)
-    {
-        $meeting->start_url = $meeting_start;
-        $meeting->join_url = $meeting_join;
-        $meeting->meeting_password = $meeting_password;
-        $meeting->meeting_duration = $meeting_duration;
-        $meeting->save();
-        return redirect($meeting_start);
-    }else{
-            return redirect()->back()->with('error','Sorry No Meeting create');
+        } else {
+//            return view('pages.admin.live', compact('meeting_start'));
+            return redirect($meeting_start);
         }
 
-    }else{
-        return redirect($meeting->start_url);
+
+        return redirect()->route('doctor.profile')->with('error', 'Please create zoom account');
     }
-
-
-
-        return redirect()->route('doctor.profile')->with('error','Please create zoom account');
-    }
-
-
 
 
     /**
@@ -124,7 +124,7 @@ dd($data);
         return view('zoom.meeting', get_defined_vars());
     }
 
-     /**
+    /**
      * Zoom ended
      *
      * @return \Illuminate\Http\Response

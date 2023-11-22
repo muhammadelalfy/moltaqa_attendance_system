@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->integer('duration')->comment('minutes');
-            $table->string('password')->comment('meeting password');
+            $table->integer('duration')->comment('minutes')->nullable();
+            $table->string('password')->comment('meeting password')->nullable();
             $table->text('start_url');
             $table->text('join_url');
-            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

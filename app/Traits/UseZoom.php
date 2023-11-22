@@ -233,8 +233,6 @@ trait UseZoom
 
     public function linkZoom($id, $email)
     {
-
-
         $user = User::findOrFail($id);
 
         if ($user->zoom_id == "") {

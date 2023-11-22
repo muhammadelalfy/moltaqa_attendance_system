@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AttendenceController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ZoomIntegrationController;
 use Illuminate\Support\Facades\Route;
 use Twilio\Rest\Client;
+use App\Traits\Sms;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,16 @@ use Twilio\Rest\Client;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('send/sms', [AttendenceController::class,'send_sms']);
 
-Route::get('/{page}', [\App\Http\Controllers\PageController::class,'index'])->name('pages');
+Route::group(['namespace' => '\App\Http\Controllers'],function (){
+    Route::get('/{page}/page', [PageController::class,'index'])->middleware('auth')->name('pages');
+    Route::get('/{page}', [PageController::class,'index']);
+    Route::get('/{register}', [PageController::class,'index'])->name('register');
+    Route::post('/attend', [AttendenceController::class,'attend_online'])->name('register');
+    Route::get('/zoom/{id}', [ZoomIntegrationController::class, 'createMeeting'])->name('create-meeting');
 
-Route::get('/zoom/{id}', [\App\Http\Controllers\ZoomIntegrationController::class, 'createMeeting']);
+});
 
 //twillio
 Route::get('sendSms', function () {
@@ -35,6 +45,7 @@ $message = $twilio->messages
 dd("message sent successfully");
 });
 
+require __DIR__ . '/auth.php';
 
 //Route::get('sendSms', function () {
 
@@ -68,4 +79,3 @@ dd("message sent successfully");
 //    }
 //
 //});
-require __DIR__ . '/auth.php';

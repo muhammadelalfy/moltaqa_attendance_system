@@ -16,28 +16,29 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login-page');
+        return view('auth.login');
     }
 
     /**
      * Handle an incoming authentication request.
      *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @param \App\Http\Requests\Auth\LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
         $request->session()->regenerate();
-
+        if (\auth()->user()->type == 'super_admin')
+            return redirect()->intended('/admin_overview');
         return redirect()->intended('/home');
+
     }
 
     /**
      * Destroy an authenticated session.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)

@@ -11,14 +11,15 @@
             </div>
             <div class="row"></div>
             <div class="col-lg-12">
-                <form class="mt-4 js-validate" action="" method="POST" novalidate="">
+                <form class="mt-4 js-validate" action="{{route('register')}}" method="POST" novalidate="">
+                    @csrf
                     <div class="mb-4">
                         <label class="form-label text-dark-emphasis" for="name">الاسم الرباعي<span class="d-inline-block text-red">*</span></label>
                         <input class="form-control" id="name" type="text" name="name" placeholder="الاسم الرباعي" required="" autofocus=""/>
                     </div>
                     <div class="mb-4">
                         <label class="form-label text-dark-emphasis" for="id">الهوية الوطنية<span class="d-inline-block text-red">*</span></label>
-                        <input class="form-control" id="id" type="text" name="name" placeholder="الهوية الوطنية" required=""/>
+                        <input class="form-control" id="id" type="text" name="identity" placeholder="الهوية الوطنية" required=""/>
                     </div>
                     <div class="mb-4">
                         <label class="form-label text-dark-emphasis" for="phone">رقم الجوال<span class="d-inline-block text-red">*</span></label>
@@ -53,7 +54,7 @@
                     <div class="mb-4">
                         <label class="form-label text-dark-emphasis" for="confirmpassword">تأكيد كلمة المرور<span class="d-inline-block text-red">*</span></label>
                         <div class="css-input-password">
-                            <input class="form-control" id="confirmpassword" type="password" name="password" placeholder="تأكيد كلمة المرور" required=""/>
+                            <input class="form-control" id="confirmpassword" type="password" name="password_confirmation" placeholder="تأكيد كلمة المرور" required=""/>
                             <button class="btn bg-transparent rounded-circle p-2 css-input-password--show js-toggle-password ms-2" id="toggle-password" type="button"><i class="bi bi-eye fs-3"></i></button>
                         </div>
                     </div>

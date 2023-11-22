@@ -3,6 +3,11 @@
 @section('title', 'سجل معنا')
 
 @section('content')
+    @if(Request::is('attendance/page'))
+        @php
+        $join_url = \App\Models\Meeting::first()->join_url;
+        @endphp
+    @endif
     <div class="position-relative z-3 start-0 w-100 css-box-over-header">
         <div class="container">
             <div class="bg-white rounded-3 p-5 border">
@@ -29,7 +34,7 @@
                 <section class="pb-4 mb-4 border-bottom text-center">
                     <p class="fs-4 text-dark lh-xl css-letter-spacing mb-0">يهدف ملتقى أسرة سعودية آمنة إلى تعزيز المعرفة والحوار حول مواضيع مهمة. نحن متشوقون لرؤيتكم جميعًا هناك!</p>
                     <p class="fs-4 text-dark italic lh-xl css-letter-spacing">شكرًا لحضوركم ومساهمتكم في هذا الملتقى المهم.</p>
-                    <button class="btn btn-primary btn-lg px-4" id="jsStartMeeting">انضم للبث المباشر</button>
+                    <a href="{{$join_url}}" class="btn btn-primary btn-lg px-4" id="jsStartMeeting">انضم للبث المباشر</a>
                     <div class="text-center" id="jsCountdown"></div>
                 </section>
                 <section>

@@ -45,14 +45,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_attended' => 'boolean'
     ];
+    protected $with = ['certification'];
 
-    public function certification(){
-        $this->hasOne(Certificate::class);
+    public function certification()
+    {
+        return $this->hasOne(Certificate::class);
     }
 
     public function meeting()
     {
-        $this->hasMany(Meeting::class);
+        return $this->hasMany(Meeting::class);
     }
 }

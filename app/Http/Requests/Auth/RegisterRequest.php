@@ -25,16 +25,18 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'identity' => 'required|string|max:255',
+            'phone' => 'required|regex:/(01)[0-9]{9}/',
             'email' => 'required|email|max:255|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|unique:users,email',
             'password' => ['required', 'confirmed', 'min:6'],
             'gender' => ['required', 'in:male,female'],
         ];
     }
 
-//    protected function passedValidation()
-//    {
-//      $this->replace(['password' => Hash::make($this->input('password')),
-//        ]);
-//    }
+    protected function passedValidation()
+    {
+
+        $this->merge([  'password' =>'+966' . $this->input('password') , 'type' => 'customer' ]);
+
+    }
 
 }

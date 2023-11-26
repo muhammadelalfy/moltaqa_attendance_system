@@ -36,7 +36,7 @@
                                 <button class="btn btn-secondary rounded-pill text-white py-md px-6 w-100" type="submit">تسجيل الدخول</button>
                             </div>
                             <div class="d-flex justify-content-center mt-2">
-                                <div class="fs-6 css-flex=item"><span class="text-dark-emphasis">لاتملك حساب؟ </span><a class="text-decoration-none text-dark fw-bold fs-6 d-inline-block" href="{{route('register','register')}}">أنشئ حسابك الآن</a></div>
+                                <div class="fs-6 css-flex=item"><span class="text-dark-emphasis">لاتملك حساب؟ </span><a class="text-decoration-none text-dark fw-bold fs-6 d-inline-block" href="{{route('register')}}">أنشئ حسابك الآن</a></div>
                             </div>
                         </form>
                     </div>

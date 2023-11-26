@@ -8,6 +8,7 @@ class PageController extends Controller
 {
     public function index($pageName)
     {
+//        dd($pageName);
         if ($pageName == 'login' || $pageName == 'register' || $pageName == 'reset-password') {
             $this->middleware('guest');
             return view('auth.' . $pageName);

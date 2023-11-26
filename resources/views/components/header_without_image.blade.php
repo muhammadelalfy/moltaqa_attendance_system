@@ -77,7 +77,7 @@
                     </ul>
                     <div class="d-flex gap-4 mt-4 mt-xl-0"><a
                             class="btn btn-secondary text-white fw-normal fs-6 py-md px-4"
-                            href="{{route('pages','login-page')}}">تسجيل الدخول</a></div>
+                            href="{{route('pages','login')}}">تسجيل الدخول</a></div>
                 </div>
             </div>
         </nav>

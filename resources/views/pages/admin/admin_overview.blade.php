@@ -15,7 +15,7 @@
                                 <li>
                                     <hr class="dropdown-divider"/>
                                 </li>
-                                <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                                <li><a class="dropdown-item" href="{{route('logout')}}">تسجيل الخروج</a></li>
                             </ul>
                         </li>
                         <li>

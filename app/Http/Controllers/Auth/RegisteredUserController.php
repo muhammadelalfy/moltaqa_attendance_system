@@ -34,11 +34,12 @@ class RegisteredUserController extends Controller
     {
         try {
             DB::beginTransaction();
-            $user = User::create($request->validated());
+            $request->input('type', 'customer');
+            $user = User::create($request->all());
+//dd($user);
             DB::commit();
 //            $user->sendEmailVerificationNotification();
-            Toastr::success('registered successfully', 'success');
-            return redirect('login-page');
+            return redirect('login')->with(['success' => 'registered successfully']);
         } catch (\Exception $e) {
             DB::rollBack();
             info('error occurred at ' . __LINE__ . ' at ' . __CLASS__ . ' class and the error is ' . $e);

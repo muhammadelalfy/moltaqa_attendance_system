@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttendenceController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\ZoomIntegrationController;
 use Illuminate\Support\Facades\Route;
 use Twilio\Rest\Client;
@@ -17,13 +18,22 @@ use App\Traits\Sms;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('send/sms', [AttendenceController::class,'send_sms']);
+require __DIR__ . '/auth.php';
+
+Route::get('send/sms', [SmsController::class,'send_sms']);
+Route::get('/',function (){
+    return view('pages.home');
+})->middleware('auth')->name('pages');
 
 Route::group(['namespace' => '\App\Http\Controllers'],function (){
+
     Route::get('/{page}/page', [PageController::class,'index'])->middleware('auth')->name('pages');
     Route::get('/{page}', [PageController::class,'index']);
-    Route::get('/{register}', [PageController::class,'index'])->name('register');
-    Route::post('/attend', [AttendenceController::class,'attend_online'])->name('register');
+//    Route::get('/{register}', [PageController::class,'index'])->name('register');
+    Route::post('/attend', [AttendenceController::class,'attend_online']);
+    Route::post('/is-attended', [AttendenceController::class,'is_attended'])->name('attendance');
+    Route::post('/check-code', [AttendenceController::class,'check_code'])->name('check_code');
+    Route::post('/download', [AttendenceController::class,'check_code'])->name('check_code');
     Route::get('/zoom/{id}', [ZoomIntegrationController::class, 'createMeeting'])->name('create-meeting');
 
 });
@@ -45,7 +55,6 @@ $message = $twilio->messages
 dd("message sent successfully");
 });
 
-require __DIR__ . '/auth.php';
 
 //Route::get('sendSms', function () {
 

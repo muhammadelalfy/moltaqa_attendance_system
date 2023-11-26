@@ -15,7 +15,7 @@
                                 <li>
                                     <hr class="dropdown-divider"/>
                                 </li>
-                                <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                                <li><a class="dropdown-item" href="{{route('logout')}}">تسجيل الخروج</a></li>
                             </ul>
                         </li>
                         <li>
@@ -125,7 +125,7 @@
                                     <th>رقم الهوية	</th>
                                     <th>البريد الإلكتروني</th>
                                     <th>الجنس</th>
-                                    <th>نوع الحضور	</th>
+                                    <th>نوع الحضور	</th>Toastr
                                     <th>الحالة</th>
                                     <th>الحصول على الشهادة</th>
                                 </tr>

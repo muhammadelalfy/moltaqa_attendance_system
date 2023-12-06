@@ -3,7 +3,6 @@
 @section('title', 'استخراج الشهادات')
 
 @section('content')
-    {{-- --}}
     <div class="position-relative z-3 start-0 w-100 css-box-over-header">
         <div class="container">
             <div class="bg-white rounded-3 p-5 border">

@@ -15,6 +15,11 @@ class PageController extends Controller
         } elseif ($pageName == 'admin_evaluation_management' || $pageName == 'admin_overview' || $pageName == 'admin_questions') {
             return view('pages.admin.' . $pageName);
         }
+        if (!view()->exists('pages.'.$pageName)){
+            return view('errors.404');
+        }
         return view('pages.' . $pageName);
+
+
     }
 }

@@ -51,5 +51,6 @@
         toastr.success("{{\Illuminate\Support\Facades\Session::get('success')}}")
     </script>
 @endif
+@stack('scripts')
 </body>
 </html>

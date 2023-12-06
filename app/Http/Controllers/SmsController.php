@@ -8,7 +8,7 @@ class SmsController extends Controller
 {
     use Sms;
 
-    public function send_sms($pageName)
+    public function send_sms()
     {
         return $this->sendSms();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 
 /**
@@ -16,13 +17,14 @@ trait Sms
         $app_id = "smGvyrxo7NBTYCXvSDPp04BVDOrdnZyzhUpgcFfX";
         $app_sec = "93Xe3vbZHR8FoQ13EoKNJ7bpbDYc3UhTqZm30jHzAoFw1abgwBjikEscBeFld6kq1vP9xcnL0PIVKPymkyRE1LhdBs8F3C9ESKpz";
         $app_hash = base64_encode("{$app_id}:{$app_sec}");
-
+        $users_phone = User::pluck('phone');
+//dd($users_phone);
         $messages = [
             "messages" => [
                 [
                     "text" => "Hello, Mr Abdullah",
                     "numbers" => ["966548078995"],
-                    "sender" => "ALMoltaqa"
+                    "sender" => "4jawaly"
                 ]
             ]
         ];

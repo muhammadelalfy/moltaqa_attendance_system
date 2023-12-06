@@ -18,6 +18,7 @@ use App\Traits\Sms;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 require __DIR__ . '/auth.php';
 
 Route::get('send/sms', [SmsController::class,'send_sms']);
@@ -30,13 +31,19 @@ Route::group(['namespace' => '\App\Http\Controllers'],function (){
     Route::get('/{page}/page', [PageController::class,'index'])->middleware('auth')->name('pages');
     Route::get('/{page}', [PageController::class,'index']);
 //    Route::get('/{register}', [PageController::class,'index'])->name('register');
-    Route::post('/attend', [AttendenceController::class,'attend_online']);
-    Route::post('/is-attended', [AttendenceController::class,'is_attended'])->name('attendance');
-    Route::post('/check-code', [AttendenceController::class,'check_code'])->name('check_code');
-    Route::post('/download', [AttendenceController::class,'check_code'])->name('check_code');
-    Route::get('/zoom/{id}', [ZoomIntegrationController::class, 'createMeeting'])->name('create-meeting');
+    Route::group(['middleware' => 'auth'] , function (){
+        Route::post('/attend', [AttendenceController::class,'attend_online']);
+        Route::post('/is-attended', [AttendenceController::class,'is_attended'])->name('attendance');
+        Route::post('/check-code', [AttendenceController::class,'check_code'])->name('check_code');
+        Route::get('/download/certificate', [AttendenceController::class,'download_certificate'])->name('download_certificate');
+        Route::get('/zoom/{id}', [ZoomIntegrationController::class, 'createMeeting'])->name('create-meeting');
+    });
+
 
 });
+Route::get('/tests/test',function (){
+    return view('welcome');
+})->name('tests');
 
 //twillio
 Route::get('sendSms', function () {

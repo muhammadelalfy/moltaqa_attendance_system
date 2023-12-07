@@ -20,7 +20,7 @@ trait UseZoom
     {
 
         $this->client = new Client();
-        $this->accessToken = 'kZ8A-bCKTYKXWCZKytHHcQ';
+        $this->accessToken = 'uZDKBaOrRkmXTzR-eqci4Q';
 
         $this->headers = [
             'Authorization' => 'Bearer ' . $this->accessToken,
@@ -49,9 +49,9 @@ trait UseZoom
 
     function generateZoomAccessToken()
     {
-        $apiKey = env('Client_ID');
-        $apiSecret = env('Client_Secret');
-        $account_id = env('Account_ID');
+        $account_id = "1TfLziTdTrWKbA1OCE9Tjg";
+        $apiKey = "eHqQYS4pQnahw9CaU4g8zA";
+        $apiSecret = "9JMW95JAd5AOlOowPwz0eeNOJPa9Cgsl";
 
         $base64Credentials = base64_encode("$apiKey:$apiSecret");
 
@@ -118,12 +118,12 @@ trait UseZoom
         $url = 'https://api.zoom.us/v2/users/me/meetings';
 
         $response = Http::withToken($accessToken)->post($url, [
-            'topic'      => 'Online Meeting',
-            'type'       => self::MEETING_TYPE_SCHEDULE,
-            'start_time' => time() + config('zoom.token_life'),
-            'duration'   => 1,
-            'agenda'     => 'Meeting for Patient',
-            'timezone' => 'Africa/Cairo',
+            'topic'      => 'الملتقى السنوى لمقاومة المخدرات وتوعية الشباب',
+            'type'       => self::MEETING_TYPE_INSTANT,
+//            'start_time' => now()->addMinute(),
+//            'duration'   => 4,
+            'agenda'     => 'conference',
+            'timezone' => 'Asia/Riyadh',
         ]);
             return [
                 'success' => $response->getStatusCode() === 201,
@@ -231,55 +231,7 @@ trait UseZoom
     }
 
 
-    public function linkZoom($id, $email)
-    {
-        $user = User::findOrFail($id);
 
-        if ($user->zoom_id == "") {
-
-            $body = [
-                'action' => "create",
-                'user_info' => [
-                    'email' => $email,
-                    'first_name' => $user->name,
-                    'type' => 1
-                ]
-            ];
-
-
-            $res = $this->zoomPost('users', $body);
-
-            $res = json_decode($res->body(), true);
-
-            if(isset($res['id']))
-            {
-                    $user->zoom_id = $res['id'];
-            $user->zoom_email = $email;
-            $user->save();
-
-            return $data = [
-                'message' => 'You have been associated with Ipersona Zoom portol.However, check your email inbox to accept invitation.'
-            ];
-            }
-
-            return $data = ['message' => 'This email is already exist plz use another'];
-
-
-        }
-
-        return $data = [
-            'message' => 'You have already linked with Zoom.'
-        ];
-
-
-
-    }
-
-   public function zoomGet(string $path, array $body = [])
-    {
-        $request = $this->zoomRequest();
-        return $request->get(config('zoom.base_url') . $path, $body);
-    }
 
     /**
      * Display a zoomPost.

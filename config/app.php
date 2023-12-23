@@ -185,6 +185,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Translation' => 'App\Helpers\Translation',
         'Twilio' => 'Aloha\Twilio\Support\Laravel\Facade',
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
 
